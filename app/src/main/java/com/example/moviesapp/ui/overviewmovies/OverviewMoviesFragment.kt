@@ -103,6 +103,7 @@ class OverviewMoviesFragment : Fragment() {
                 binding.progressBar.visibility = View.GONE
                 binding.moviesRecylerView.visibility = View.GONE
                 binding.genericErrorTv.visibility = View.VISIBLE
+                binding.buttonShowMore.visibility = View.GONE
             }
         })
 
