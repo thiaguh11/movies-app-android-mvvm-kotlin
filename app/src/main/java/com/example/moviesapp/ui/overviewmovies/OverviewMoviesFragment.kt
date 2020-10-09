@@ -75,6 +75,7 @@ class OverviewMoviesFragment : Fragment() {
                             }
 
                             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                                binding.buttonShowMore.visibility = View.VISIBLE
                                 binding.moviesRecylerView.adapter = adapter
                                 return true
                             }
