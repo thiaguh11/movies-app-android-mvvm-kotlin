@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/overviewMoviesFragment">
+
+    <fragment
+        android:id="@+id/overviewMoviesFragment"
+        android:name="com.example.moviesapp.ui.overviewmovies.OverviewMoviesFragment"
+        android:label="fragment_overview_movies"
+        tools:layout="@layout/fragment_overview_movies" >
+        <action
+            android:id="@+id/action_overviewMoviesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+        <action
+            android:id="@+id/action_overviewMoviesFragment_to_overviewFavoritesMoviesFragment"
+            app:destination="@id/overviewFavoritesMoviesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        tools:layout="@layout/fragment_movie_details"
+        android:name="com.example.moviesapp.ui.moviedetails.MovieDetailsFragment"
+        android:label="MovieDetailsFragment" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/overviewFavoritesMoviesFragment"
+        tools:layout="@layout/fragment_overview_favorites_movies"
+        android:name="com.example.moviesapp.ui.overviewfavoritesmovies.OverviewFavoritesMoviesFragment"
+        android:label="OverviewFavoritesMoviesFragment" >
+        <action
+            android:id="@+id/action_overviewFavoritesMoviesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+</navigation>
