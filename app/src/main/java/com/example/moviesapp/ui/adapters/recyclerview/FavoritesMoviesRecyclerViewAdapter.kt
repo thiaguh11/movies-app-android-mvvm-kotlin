@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesapp.data.database.FavoriteMovie
-import com.example.moviesapp.databinding.ItemFavoriteMovieRecyclerViewBinding
+import com.example.moviesapp.databinding.ItemMovieRecyclerViewBinding
 
 class FavoritesMoviesRecyclerViewAdapter(private val items: List<FavoriteMovie>, private val onClickListener: OnClickListener) : RecyclerView.Adapter<FavoritesMoviesRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemFavoriteMovieRecyclerViewBinding.inflate(inflater)
+        val binding = ItemMovieRecyclerViewBinding.inflate(inflater)
         return ViewHolder(binding)
     }
 
@@ -28,9 +28,10 @@ class FavoritesMoviesRecyclerViewAdapter(private val items: List<FavoriteMovie>,
         fun onClick(favoriteMovie: FavoriteMovie) = clickListener(favoriteMovie)
     }
 
-    inner class ViewHolder(private val binding: ItemFavoriteMovieRecyclerViewBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemMovieRecyclerViewBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(favoriteMovie: FavoriteMovie) {
-            binding.favoriteMovie = favoriteMovie
+            binding.title = favoriteMovie.title
+            binding.posterPath = favoriteMovie.posterPath
             binding.executePendingBindings()
         }
     }

@@ -30,7 +30,8 @@ class MoviesRecyclerViewAdapter(private val items: List<Movie>, private val onCl
 
     inner class ViewHolder(private val binding: ItemMovieRecyclerViewBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Movie) {
-            binding.movie = item
+            binding.title = item.title
+            binding.posterPath = item.posterPath
             binding.executePendingBindings()
         }
     }

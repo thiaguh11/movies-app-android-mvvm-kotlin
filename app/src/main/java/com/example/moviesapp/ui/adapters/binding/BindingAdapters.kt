@@ -4,6 +4,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.moviesapp.R
 import com.example.moviesapp.data.model.Genre
@@ -14,10 +15,12 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
         val url = "https://image.tmdb.org/t/p/w500$imageUrl"
         Glide.with(imgView.context)
             .load(url)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
             .apply(
                 RequestOptions()
                 .placeholder(R.drawable.loading_animation)
                 .error(R.drawable.ic_broken_image))
+                .override(250, 250)
             .into(imgView)
     }
 }

@@ -5,8 +5,12 @@
 
     <data>
         <variable
-            name="movie"
-            type="com.example.moviesapp.data.model.Movie" />
+            name="title"
+            type="String" />
+
+        <variable
+            name="posterPath"
+            type="String" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -26,8 +30,8 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:scaleType="centerCrop"
-                imageUrl="@{movie.posterPath}"
+                android:scaleType="fitXY"
+                imageUrl="@{posterPath}"
                 android:contentDescription="@string/poster"
                 tools:src="@tools:sample/avatars" />
 
@@ -42,7 +46,7 @@
                 app:autoSizeTextType="uniform"
                 app:autoSizeMaxTextSize="16sp"
                 android:background="@color/blackTransparent"
-                android:text="@{movie.title}"
+                android:text="@{title}"
                 android:ellipsize="end"
                 android:maxLines="3"
                 tools:text="Título" />

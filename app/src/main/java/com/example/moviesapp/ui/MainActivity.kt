@@ -11,8 +11,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var mainComponent: MainComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         mainComponent = MyApplication.appComponent.mainComponent().create()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

@@ -3,6 +3,7 @@ package com.example.moviesapp.ui.overviewfavoritesmovies
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -35,9 +36,9 @@ class OverviewFavoritesMoviesFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentOverviewFavoritesMoviesBinding.inflate(inflater)
 
-        binding.mainToolbar.setNavigationOnClickListener {
-            requireActivity().onBackPressed()
-        }
+        (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        setHasOptionsMenu(true)
 
         overviewFavoritesMoviesFragmentViewModel.getFavoritesMovies().observe(viewLifecycleOwner, {favoritesMovies ->
             favoritesMovies?.let {movies ->
@@ -55,4 +56,14 @@ class OverviewFavoritesMoviesFragment : Fragment() {
 
         return binding.root
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                requireActivity().onBackPressed()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
